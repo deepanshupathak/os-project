@@ -95,6 +95,75 @@ int main()
 	}
 	printf("\n||---------------------------------------------------------------------------------------------||\n");
 	printf("\n||---------------------------------------------------------------------------------------------||\n");
-		
-		return(0);
+		printf("\n\n\n\n\n||--------------||\n||\tSTEP 2:\t||\n||--------------||\n\n");
+	printf("\nENTER THE ALLOCATION RESOURSES FOR ALL PROCESSES WITH INSTANCES A,B,C RESPECTIVELY\n");
+	for(i=0;i<m;i++)
+	{
+		int a1=65;
+		for(j=0;j<3;j++)
+		{
+		printf("\nenter the allocation for p%d process with instance %c :",i+1,a1);
+		scanf("%d",&allo[i][j]);
+		a1++;
+		}
+		printf("\n------------------------------------------------------------------\n");
 	}
+	printf("\nprocess\t\t maximum\t\tallocation");
+	printf("\n");
+	
+	for(i=0;i<m;i++)
+	{
+		printf("\np%d\t    ",i+1);
+		for(j=0;j<3;j++)
+	{
+			printf("  %d  ",max[i][j]);
+	}
+	printf("\t\t");
+	for(k=0;k<3;k++)
+	{
+		printf("  %d  ",allo[i][k]);
+	}
+	
+	printf("\n");
+	}
+	
+	printf("\n||---------------------------------------------------------------------------------------------||\n");
+	printf("\n||---------------------------------------------------------------------------------------------||\n");
+	printf("\n\n\n\n\n||--------------||\n||\tSTEP 3:\t||\n||--------------||\n\n");
+	printf("NEED MATRIX WILL BE :\n");
+	printf("\nprocess  \tmaximum     \tallocation  \tNEED\n");
+	for(i=0;i<m;i++)
+	{
+		printf("\np%d\t   ",i+1);
+		for(j=0;j<3;j++)
+		{
+		need[i][j]=max[i][j]-allo[i][j];
+		printf("  %d  ",max[i][j]);
+		}
+		printf("\t");
+		for(j=0;j<3;j++)
+		{
+		printf("%d  ",allo[i][j]);
+		}
+		printf("\t");
+		for(k=0;k<3;k++)
+		{
+		printf("%d  ",need[i][k]);
+		}
+		printf("\n");
+	}
+	printf("\n\nfrom the given process table AVAILABLE RESOURSES is :\n");
+	avail[0][0]=3;
+	avail[0][1]=3;
+	avail[0][2]=2;
+	int a22=65;
+	for(i=0;i<1;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+		printf("\nfor Instance %c : %d\n",a22,avail[i][j]);
+		a22++;
+		}
+	}
+	return(0);
+}
